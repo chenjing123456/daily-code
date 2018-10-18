@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .midnightHeader.default {
+        background: none;
+        color: black;
+        }
+        .midnightHeader.white {
+        background: white;
+        color: black;
+        }
+        .midnightHeader.blue {
+        background: blue;
+        color: white;
+        }
+        .midnightHeader.red {
+        background: red;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="js/midnight.jquery.min.js"></script>
+    <script>
+    // Start midnight
+    $(document).ready(function(){
+    // Change this to the correct selector.
+    $('nav.fixed').midnight();
+    });
+    </script>
+    <nav class="fixed">
+    <!-- Your standard header -->
+        <div class="midnightHeader default">
+            <a class="logo">Logo</a>
+        </div>
+        
+        <!-- A header with a butterfly -->
+        <div class="midnightHeader butterfly">
+            <a class="logo">Logo</a>
+            <span class="a-butterfly"><!-- Everybody loves butterflies! --></span>
+            <span class="another-butterfly"><!-- OH GOD THEY ARE IN MY FACE --></span>
+            <span class="yet-another-butterfly"><!-- AAAAAHHHHHHHHHHHHHHHHHHHHH --></span>
+        </div>
+    </nav>
+    <section data-midnight="white">
+        <h1>Use a white nav here</h1>
+      </section>
+      
+      <div data-midnight="blue">
+        <h1>And a blue nav here</h1>
+      </div>
+      
+      <footer>
+        <h1>This will just use the default header</h1>
+      </footer>
+</body>
+</html>

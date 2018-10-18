@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打印机效果</title>
+    <style>
+        #element{
+            margin: 0 auto;
+            width:400px;
+            height:400px;
+            background:aquamarine;
+            color:white;
+            font-size: 24px;
+            line-height: 400px;
+            text-align: center
+        }
+        .typed-cursor{
+          opacity: 1;
+          animation: typedjsBlink 0.7s infinite;
+          -webkit-animation: typedjsBlink 0.7s infinite;
+          animation: typedjsBlink 0.7s infinite;
+        }
+        @keyframes typedjsBlink{
+          50% { opacity: 0.0; }
+        }
+        @-webkit-keyframes typedjsBlink{
+          0% { opacity: 1; }
+          50% { opacity: 0.0; }
+          100% { opacity: 1; }
+        }
+        .typed-fade-out{
+          opacity: 0;
+          transition: opacity .25s;
+          -webkit-animation: 0;
+          animation: 0;
+        }
+    </style>
+   
+</head>
+<body>
+    <div id="element"></div> 
+    <script type="text/javascript" src="https://cdn.bootcss.com/typed.js/2.0.5/typed.js"></script> 
+    <script type="text/javascript">
+        var options = {
+        // 闪烁光标必须得有：上面的css和下面字符串内添加 ^1000 ，只要是当输入到^1000就解析闪烁的时间，1000ms。
+          strings: ["hello", "my name is chenjing",'welcome to here!'],
+          typeSpeed: 100,
+          backSpeed: 60,
+          loop:true,
+          loopCount:Infinity
+        }
+        var typed = new Typed("#element", options);
+    </script>
+</body>
+</html>
