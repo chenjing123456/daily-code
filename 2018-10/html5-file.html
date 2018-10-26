@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件api</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            
+            var file = document.getElementById('fileDemo');
+            file.addEventListener('change',hander,false);
+            function hander(){
+                var fileList = this.files;
+                for( var i = 0 ; i < fileList.length ; i++ ){
+                    console.log(fileList[i]);
+                }
+
+            }
+
+            
+            
+        var dropbox = document.getElementById("dropbox");  
+        dropbox.addEventListener("dragenter", dragenter, false);  
+        dropbox.addEventListener("dragover", dragover, false);  
+        dropbox.addEventListener("drop", drop, false); 
+        
+        function dragenter(e) {  
+            e.stopPropagation();  
+            e.preventDefault();  
+            console.log(1)
+        }  
+        
+        function dragover(e) {  
+            e.stopPropagation();  
+            e.preventDefault();  
+            console.log(2)
+        }
+        
+        function drop(e) {  
+            e.stopPropagation();  
+            e.preventDefault();   
+            var dt = e.dataTransfer;  
+            var files = dt.files;
+            console.log(3)
+            console.log(files)
+            //至此，已经达到了和上一种方式相同的目的
+            handleFiles(files);
+        } 
+        
+        function handleFiles(files){
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                var imageType = /image.*/;
+                
+                if (!file.type.match(imageType)) {
+                    continue;
+                }
+                
+                var img = document.createElement("img");
+                img.classList.add("obj");
+                img.file = file;
+                dropbox.appendChild(img);
+                
+                var reader = new FileReader();
+                reader.onload = (function(aImg){
+                    return function(e){
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+                reader.readAsDataURL(file);
+            }
+        }
+
+        })
+        
+
+    </script>
+</head>
+<body>
+    <form action="#" method="post" novalidate="true">
+        <input type="file" multiple="multiple" name="fileDemo" id="fileDemo"><br>
+        <!-- <input type="button" value="获取文件名字" id="btnGetFile"> -->
+        <br>
+        <hr>
+        <div id="dropbox" style="background:rgb(253, 241, 21);">
+                Drop Here
+                <img src="" alt="">
+        </div>
+    </form>
+</body>
+</html>

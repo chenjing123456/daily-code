@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>结构化布局</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+    header{
+        background:red;
+        position: relative;
+        height: 100px;
+    }
+    nav{
+        /* width: 100%; */
+        position: absolute;
+        bottom:0;
+        right:0;
+        background: green;
+    }
+    nav ul{
+        display: flex;
+        list-style-type: none;
+    }
+    nav ul li{
+        line-height: 100px;
+        margin-right:30px;
+    }
+    nav ul li:first-child{
+        margin-left:30px;
+    }
+    article{
+        width: 60%;
+        float:left;
+        background: pink;
+        height: 100%;
+    }
+    .content{
+        height: 400px;
+    }
+    aside{
+        width:40%;
+        float:right;
+        height: 100%;
+        background: yellowgreen;
+        
+    }
+    aside ul li{
+        list-style-type: none;
+    }
+    footer{
+        clear:both;
+        background:blueviolet;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <hgroup>
+            <h1>hello my name is chen</h1>
+            <h2>welcome</h2>
+        </hgroup>
+        <nav>
+            <ul>
+                <li>c</li>
+                <li>c</li>
+                <li>c</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <article>
+            <h2>blue</h2>
+            <section>
+                <h3>你好</h3>
+            </section>
+            <footer></footer>
+        </article>
+        <aside>
+            <form action="#" oninput="output.value=parseInt(range.value)">
+                user: <input type="text" name="user"><br>
+                password: <input type="password" name="password" autofocus><br>
+                num:<input type="number" name="demoNum" value="1" min="1" max="100" step="1"><br>
+                email: <input type="eamil" placeholder="输入邮箱地址" name="email"><br>
+                tel: <input type="tel" placeholder="请输入电话号码" name="tel"><br>
+                url: <input type="url" placeholder="请输入网址" name="url"><br>
+                range: <input type="range" min="0" max="50" step="5" name="range" value="0">
+                <output name="output">0</output><br>
+                <input type="date" name="date">
+                <input type="datetime-local" name="datetime">
+                <input type="color" name="color"><br>
+
+                <input type="text" name="auto" list="auto" autocomplete="on">
+                <datalist id="auto">
+                    <option value="html5"></option>
+                    <option value="html"></option>
+                    <option value="java"></option>
+                </datalist>
+            </form>
+            <ul>
+                <li>c++</li>
+                <li>c++</li>
+                <li>c++</li>
+            </ul>
+        </aside>
+    </div>
+    
+    <footer>
+        <address>江西省</address>
+    </footer>
+</body>
+</html>
