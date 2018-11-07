@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>判断回文</title>
+</head>
+<body>
+    <script>
+        //1.for
+        function isPalindrome1 (line) {
+            for(var i=0,j =line.length-1;i<j; i++,j--){
+                if(line.charAt(i)!==line.charAt(j)){
+                    return false
+                }
+            }
+            return true;
+        }
+        console.log(isPalindrome1('12321'));
+
+        //2.array
+        const isPalindrome = function(line){
+            line += '';
+            return line === line.split('').reverse().join('');
+        }
+        let a = isPalindrome('123221');
+        console.log(a)
+    </script>
+</body>
+</html>

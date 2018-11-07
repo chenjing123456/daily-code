@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if语句</title>
+</head>
+<body>
+    <script>
+        var a = window.prompt('请输入你的年龄','');
+        a = Math.abs(parseInt(a));
+        alert(a);
+        if(!a || typeof a !== 'number'){
+            if(typeof a !== 'number'){
+                alert('请输入正确的类型')
+            }else{
+                alert('请输入正确的值')
+            }
+        }else{
+            if(a < 10){
+                alert('少年人')
+            }else if(a < 30){
+                alert('青年人')
+            }else if(a < 50){
+                alert('壮年人')
+            }else{
+                alert('老年人')
+            }
+        }
+
+        switch(a){
+            case 10:
+                alert('少年人');
+                // break;
+            case 20:
+                alert('青年人');
+                break;
+            case 30:
+                alert('壮年人');
+                break;
+            case 50:
+                alert('老年人')
+                break;
+            default:
+                alert('你好')
+        }
+    </script>
+</body>
+</html>

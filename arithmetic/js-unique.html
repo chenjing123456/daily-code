@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    <script>
+        //1.filter
+        const unique1 = (arr)=>{
+            cache = {};
+            return arr.filter((item)=>{
+                return cache[item] ? false : (cache[item]=true)
+            })
+        }
+        let result = [123,2,34,444,33,22,22,33,'34'];
+        let b = unique1(result);
+        console.log(b,cache);
+
+        //2.splice
+        var unique2 = function(arr){
+            var orderArr = arr.sort();
+            for(var i =0;i<orderArr.length;i++){
+                if(orderArr[i]===orderArr[i+1]){
+                    orderArr.splice(i,1);
+                    unique2(orderArr);
+                    return orderArr;   
+                }
+                // return orderArr;
+            }
+        }
+
+        //3.Set
+        var result2 = unique2([2,3,4,4,'32',434,3,4,3,'ds','你双方都'])
+        console.log(result2);
+
+        let result3 = [...new Set([2,3,4,4,,2,22,33,22,'fe'])];
+        console.log(result3);
+
+        let result4 = Array.from(new Set([2,3,,2,1,2,3,'34']))
+        console.log(result4);
+    </script>
+</body>
+</html>
