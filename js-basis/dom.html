@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Node类型</title>
+</head>
+<body>
+    <div id="d">
+        <h1>welcome to here!nihao</h1>
+        <p onclick="show()">你好，欢迎来到实力至上主义的教室</p>
+    </div>
+    <script>
+        var div = document.getElementById('d');
+        // console.log(div.parentNode);
+        // console.log(div.childNodes);
+        // console.log(div.children);
+        var h = document.getElementsByTagName('h1')[0];
+        // console.log(h.nextSibling)
+        // console.log(h.previousSibling)
+        // console.log(div.firstChild)
+        // console.log(div.lastChild)
+
+        div.appendChild(h);//原来已经有的则进行位置更新
+        var p = document.createElement('p');
+        p.innerText = '你好';
+        div.appendChild(p);
+        console.log(div.childNodes);
+
+        var p2 = div.firstElementChild.cloneNode(true);
+        div.appendChild(p2)
+        var p3 = div.firstElementChild.cloneNode(true);
+        div.insertBefore(p3,div.firstChild)
+        var p4 = document.createElement('p');
+        // p4.innerText = '<strong>你好</strong>';//strong不会被解析
+        p4.innerHTML = '<strong>你好</strong>';
+        div.replaceChild(p4,div.lastElementChild)
+        // div.removeChild(div.lastElementChild)
+        div.setAttribute('class','divOne');
+        let a = div.getAttribute('class');
+        console.log(a);
+        div.removeAttribute('class');
+        let b = div.getAttribute('class');
+        console.log(b);
+
+
+        function show(e){
+            console.log(this,e)
+        }
+
+        div.onclick = function(event){
+            console.log(this,event)
+        }
+    </script>
+</body>
+</html>

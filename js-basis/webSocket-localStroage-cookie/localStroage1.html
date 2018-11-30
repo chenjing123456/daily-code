@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>localStroage实现浏览器多个页面之间通信-页面1</title>
+</head>
+<body>
+	<input type="text" name="" id="inp" value="">
+	<input type="button" name="" value='submit' id="btn">
+	<script type="text/javascript">
+		let btn = document.getElementById('btn');
+		let inp = document.getElementById('inp');
+		btn.onclick = function(e){
+			let name = inp.value;
+			console.log(name);
+			localStorage.setItem('name',name);
+		}
+	</script>
+</body>
+</html>

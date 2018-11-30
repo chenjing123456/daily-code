@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>localStroage实现浏览器多个页面之间通信-页面2</title>
+</head>
+<body>
+	<script type="text/javascript">
+		window.addEventListener('storage',function(e){
+			let a = localStorage.getItem('name');
+			console.log(a);
+		})
+	</script>
+</body>
+</html>

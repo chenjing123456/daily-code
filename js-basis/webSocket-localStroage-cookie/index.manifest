@@ -1,0 +1,12 @@
+CACHE MANIFEST
+#version 1.1
+
+CACHE:
+    css/index.css
+
+NETWORK:
+	*
+
+#后备页面，当资源无法访问时，浏览器会使用该页面。
+FALLBACK:
+/html5/ /404.html
