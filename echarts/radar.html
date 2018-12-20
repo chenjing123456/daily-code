@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>雷达图</title>
+    <script src="https://cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width:700px;height:700px;margin:50px auto 0"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: 'ECharts 入门示例'
+            },
+            tooltip: {},
+            legend: {
+                data:['销量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+
+        let options = {
+            title: {
+                // text: '基础雷达图'
+            },
+            tooltip: {},
+            // legend: {
+            //     data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+            // },
+            radar: {
+                splitNumber: 2,
+                radius: 120,
+                shape: 'circle',
+                name: {
+                    textStyle: {
+                        color: '#ccc',
+                        // backgroundColor: '#999',
+                        // borderRadius: 3,
+                        // padding: [3, 5]
+                }
+                },
+                splitLine:{
+                    show:true,
+                    lineStyle:{
+                        color:['#aaa', '#ddd'],
+                        width:'10px'
+                    }
+                },
+                indicator: [
+                { name: '亩均税收', max: 6500},
+                { name: '亩均工业增加值', max: 16000},
+                { name: '劳动生产率', max: 30000},
+                { name: '工业增加值', max: 38000},
+                { name: '能耗增加值', max: 52000},
+                { name: '主营业务收入', max: 25000}
+                ]
+            },
+            series: [{
+                name: '预算 vs 开销（Budget vs spending）',
+                type: 'radar',
+                // areaStyle: {normal: {}},
+                itemStyle: {normal: {areaStyle: {type: 'default'}}},
+                data : [
+                    {
+                        value : [4300, 10000, 28000, 3500, 50000, 19000],
+                        name : '预算分配（Allocated Budget）'
+                    },
+                    {
+                        value : [5000, 14000, 2800, 31000, 4200, 21000],
+                        name : '实际开销（Actual Spending）'
+                    }
+                ]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(options);
+    </script>
+</body>
+</html>
