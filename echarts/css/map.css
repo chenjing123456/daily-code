@@ -1,0 +1,43 @@
+#map{
+    width:500px;
+    height: 500px;
+}
+#list{
+    width:900px;
+    height: 366px;
+    border:1px soild #ccc;
+    background: #ccc
+}
+.medical-index-syn-right-list-li{
+    width: 100%;
+    background-color: #005174;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1px;
+    height: 60px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.medical-index-syn-right-list-li.indexName{
+    /* -webkit-box-flex: 2;
+    -ms-flex: 2; */
+    flex: 2;
+    color: hsla(0,0%,100%,.7);
+    font-size: 12px;
+    /* flex-grow:2; */
+}
+.medical-index-syn-right-list-li span{
+    /* -webkit-box-flex: 1;
+    -ms-flex: 1; */
+    flex: 1;
+    font-size: 14px;
+    font-weight: 700;
+    /* flex-grow: 1; */
+
+}

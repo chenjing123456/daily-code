@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>height的各种</title>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	.main{
+		width: 1000px;
+		height: 2000px;
+		background: skyblue;
+		padding:10px;
+		border: 1px solid pink;
+	}
+	</style>
+</head>
+<body>
+<div class="main"></div>
+<script type="text/javascript">
+	let div1 = document.getElementsByTagName('div')[0];
+	console.log(div1.clientHeight)
+	console.log(div1.offsetHeight)
+	console.log(div1.scrollHeight)
+	console.log(div1.scrollTop)
+</script>
+</body>
+</html>

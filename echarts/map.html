@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>地图</title>
+    <link rel="stylesheet" href="./css/map.css">
+    <!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+    <script src="./../js-pack/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.2.0-rc.2/echarts.min.js"></script>
+</head>
+<body>
+    <!-- <div id="map">
+        
+    </div> -->
+    <div id="list">
+
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        let list = typeList = [
+            {
+                name: '亩均税收',
+                dw: '万元/亩',
+                key: 'muPerTax',
+                compare: 'taxCompare',
+                value: 83.55,
+                region: 73.98,
+                industry:55.91,
+                lastYear:6.51,
+            }, {
+                name: '亩均增加值',
+                dw: '万元/亩',
+                key: 'muIndustAdd',
+                compare: 'muIndustCompare',
+                value: 44.36,
+                region: -104.45,
+                industry:-140.83,
+                lastYear:99.67,
+            }, {
+                name: '全员劳动生产率',
+                dw: '万元/人·年',
+                key: 'allWorkRate',
+                compare: 'allWorkCompare',
+                value: -6.71,
+                region: -72.29,
+                industry:-52.03,
+                lastYear:27.87,
+            }, {
+                name: '单位能耗增加值',
+                dw: '万元/吨标煤',
+                key: 'consumeAdd',
+                compare: 'consumeCompare',
+                value: -11.15,
+                region: 1.84,
+                industry:-77.11,
+                lastYear:9.78,
+            }, {
+                name: '单位排放增加值',
+                dw: '万元/吨',
+                key: 'blowdownAdd',
+                compare: 'blowdownCompare',
+                value: 6.43,
+                region: -25,
+                industry:-160,
+                lastYear:4.85,
+            }, {
+                name: 'R&D经费支出占比',
+                dw: '%',
+                key: 'researchRate',
+                compare: 'researchCompare',
+                value: 48.55,
+                region: -120,
+                industry:-80,
+                lastYear:14.67,
+            }];
+        // let charts = echarts.init(document.getElementById('map'));
+        $('#list').html(list.map((v,i)=>{
+            return `
+            <div class="medical-index-syn-right-list-li">
+                 <span class="indexName">${v.name}</span>
+                 <span>${v.key}</span>
+                 <span>${v.compare}</span>
+                 <span>${v.key}</span>
+                 <span>${v.key}</span>
+             </div>
+            `
+        }))
+    });
+</script>
+</html>

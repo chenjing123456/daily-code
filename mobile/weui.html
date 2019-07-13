@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>weui</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+     <link rel="stylesheet" href="../../weui/dist/style/weui.min.css"/>
+     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+     <style type="text/css">
+        #main{
+          .weui-picker__hd{
+
+          }
+          .weui-picker__action:first-child,.weui-picker__action:last-child{
+            text-align: center
+          }
+        }
+     </style>
+</head>
+<body>
+<div id="main">
+<a href="javascript:;" class="weui-btn weui-btn_default " id="dataPicker">加工产品</a>
+<a href="javascript:;" class="weui-btn weui-btn_default " id="datePicker">年份</a>
+
+<div class="weui-tab">
+    <div class="weui-navbar">
+        <div class="weui-navbar__item weui-bar__item_on">
+            选项一
+        </div>
+        <div class="weui-navbar__item">
+            选项二
+        </div>
+        <div class="weui-navbar__item">
+            选项三
+        </div>
+    </div>
+    <div class="weui-tab__panel">
+        <div>Page 1</div>
+        <div style="display:none">Page 2</div>
+        <div style="display:none">Page 3</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="https://res.wx.qq.com/open/libs/weuijs/1.0.0/weui.min.js"></script>
+
+<script type="text/javascript">
+	$('#dataPicker').on('click',function(){
+    weui.picker([{
+            label: '飞机票',
+            value: '飞机票'
+        }, {
+            label: '火车票',
+            value: '火车票'
+        }, {
+            label: '的士票',
+            value: 2
+        },{
+            label: '公交票 (disabled)',
+            disabled: true,
+            value: 3
+        }, {
+            label: '其他',
+            value: 4
+        }],{
+          // onChange:function (res){
+          //   console.log(res)
+          // },
+          defaultValue: [4],
+          onConfirm: function (result) {
+             console.log(result)
+          }
+        })
+  })
+  $('#datePicker').on('click',function(){
+      weui.datePicker({
+        start: 1990,
+        end: 2000,
+        defaultValue: [1991],
+        onChange: function(result){
+            console.log(result);
+        },
+        onConfirm: function(result){
+            console.log(result);
+        },
+        id: 'datePicker'
+    });
+  })
+
+</script>
+</div>
+</body>
+</html>
