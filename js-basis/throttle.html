@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>throttle节流</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            //模拟ajax请求
+            function ajax(content) {
+                console.log('ajax request ' + content+new Date())
+            }
+            // 1.没有防抖
+            let inputNormal = document.getElementById('normal');
+            inputNormal.addEventListener('keyup', function (e) {
+                ajax(e.target.value)
+            })
+            //2.防抖
+            let debounce = document.getElementById('debounce');
+            let lastTime;
+            debounce.addEventListener('keyup',function (e) { 
+                lastTime = e.timeStamp;
+                setTimeout(function(){
+                    if(lastTime == e.timeStamp){
+                        ajax(e.target.value)
+                    }
+                },800)
+             })
+             
+             
+            var throttleV2 = function(fn, delay, mustRunDelay){
+                var timer = null;
+                var t_start;
+                return function(){
+                    var context = this, args = arguments, t_curr = +new Date();
+                    clearTimeout(timer);
+                    if(!t_start){
+                        t_start = t_curr;
+                    }
+                    if(t_curr - t_start >= mustRunDelay){
+                        fn.apply(context, args);
+                        t_start = t_curr;
+                    }
+                    else {
+                        timer = setTimeout(function(){
+                            fn.apply(context, args);
+                        }, delay);
+                    }
+                };
+            };
+            // window.onscroll  = throttleV2(ajax, 50, 100);
+            window.onscroll  = function(e){
+                console.log(new Date())
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <!-- 1.没有防抖的输入： -->
+        <input type="text" name="normal" id="normal">
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <input type="text" name="debounce" id="debounce">
+    </div>
+</body>
+</html>
