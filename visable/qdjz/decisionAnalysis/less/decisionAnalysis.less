@@ -1,0 +1,445 @@
+.flx-c{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+//每个页面最大容器样式
+.analysis-container{
+    width:100%;
+    height:100%;
+    div{
+        z-index: 999;
+    }
+}
+.mapAnalysis{
+    position: absolute;
+    left:0;
+    top:0;
+}
+//下拉选位置样式
+.select-position{
+    position: absolute;
+    top: 23px;
+    padding-left: 30px;
+    min-width:50%;
+    z-index: 1;
+}
+
+//下拉选样式
+.decision-select{
+    box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.5);
+    margin-right:20px;
+    .el-input{
+        .el-input__inner{
+            border: 1px solid rgba(50, 197, 255, 1);
+            color: #fff;
+            background-color: rgba(0, 36, 50, 1);
+        }
+        /deep/.el-input__inner:-ms-input-placeholder,.el-input__inner::-webkit-input-placeholder,.el-input__inner::-moz-placeholder{
+            color: #ff0;
+        }
+        .el-input__suffix{
+            i{
+                color: #fff;
+            }
+        }
+    }
+}
+.el-select-dropdown{
+    opacity: 0.95;
+    background-color: #0D1C22;
+    box-shadow: 0px 2px 10px 0px rgba(65, 24, 1, 0.66);
+    border: 1px solid rgba(50, 197, 255, 1);
+    .el-scrollbar{
+        .el-select-dropdown__wrap{
+            .el-select-dropdown__list{
+                .el-select-dropdown__item.hover,.el-select-dropdown__item:hover{
+                    background-color: rgba(50, 197, 255, 0.2);
+                }
+                .selected,.selected:hover,.selected.hover {
+                    color: #fff;
+                    font-weight: 700;
+                    background-color: rgba(50, 197, 255, 1);
+                }
+                .el-select-dropdown__item{
+                    color:#fff;
+                }
+            }
+        }
+    }
+    .el-select-dropdown__empty{
+        color:#fff;
+    }
+    .popper__arrow{
+        display:none;
+    }
+}
+.el-cascader__dropdown{
+    .el-cascader-panel{
+        .el-cascader-menu{
+            opacity: 0.95;
+            background-color: #0D1C22;
+            box-shadow: 0px 2px 10px 0px rgba(65, 24, 1, 0.66);
+            border: 1px solid rgba(50, 197, 255, 1);
+            .el-cascader-node:focus,.el-cascader-node.in-active-path,.el-cascader-node.is-active,
+            .el-cascader-node.in-active-path:hover,.el-cascader-node.is-active:hover{
+                color: #fff;
+                font-weight:700;
+                background-color: rgba(50, 197, 255, 1);
+            }
+            .el-cascader-node:hover{
+                background-color: rgba(50, 197, 255, 0.2);
+            }
+            .el-cascader-node__label,.el-cascader-node__postfix{
+                color: #fff;
+            }
+        }
+    }
+    .popper__arrow{
+        display:none;
+    }
+}
+
+//地图文字样式
+.text-position{
+    position: absolute;
+    z-index: 1;
+    bottom: 20px;
+    left: 30px;
+    color: rgba(255, 255, 255, 1);
+    &-vr{
+        display: flex;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.9;
+        background-color: rgba(12, 49, 65, 1);
+        box-shadow: 0px 2px 10px 0px rgba(0, 85, 138, 0.65), 0px 1px 40px 0px rgba(148, 225, 255, 0.3);
+        border: 1px solid rgba(50, 197, 255, 1);
+        margin-bottom:30px;
+        div{
+            padding:0 5px;
+            line-height:30px;
+        }
+        div:nth-of-type(1){ 
+            i{
+                color:#FB9509;
+                font-size:14px;
+            }
+        }
+        div:nth-of-type(2){
+            .el-link.el-link--default {
+                color: #fff;
+            }
+        }
+        div:nth-of-type(3){
+            background:#00273B;
+            cursor:pointer;
+            i{
+                color:#fff;
+                font-size:14px;
+            }
+        }
+    }
+    &-first{
+        font-size: 30px;
+        line-height:0.6rem;
+    }
+    &-second{
+        font-size: 16px;
+        line-height:0.2rem;
+    }
+}
+.bodyContent{
+    width:100%;
+    height:100%;
+    position: absolute;
+}
+.commonMap{
+    width:100%;
+    height:100%;
+    //background: pink;
+    position: relative;
+    z-index: 100;
+
+}
+//地图右边数据浮动框 样式
+@box_height : .63rem;
+.bod_bot{
+    border-bottom:1px solid rgba(255, 255, 255, 0.16);
+}
+
+.dataset_box{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 5.47rem;
+    z-index:1;
+    // opacity: 0.8;
+    color: #fff;
+    background-color: rgba(0, 30, 42, .8);
+    box-shadow: 0px 2px 10px 0px rgba(0, 25, 35, 1);
+    border: 1px solid rgba(52, 195, 255, 0.71);
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+    .box_head{
+        height: @box_height;
+        .bod_bot;
+        display: flex;
+        padding:0 28px;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        font-size: .14rem;
+        .left_head{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex: 1;
+            .title_or1{
+                font-size:.16rem;
+            }
+            .head_item{
+                margin-right: .4rem;
+                cursor: pointer;
+                i.iconqiehuan{
+                    font-size: .12rem;
+                    margin-right: 8px;
+                }
+            }
+        }
+        .right_head{
+            i{
+                cursor: pointer;
+                font-size: .16rem;
+            }
+        }
+    }
+    .box_contain{
+        // flex:1;
+        height: calc(~'(100%-@{box_height})');
+        padding:0 .28rem;
+    }
+    .contain_item{
+        height: calc(~'(100%-@{box_height}+1px)/2');
+        display: flex;
+        flex-direction: column;
+        &:first-child{
+           .bod_bot;
+        }
+        .sub_title{
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding-top: .24rem;
+            font-size: .18rem;
+            i{
+                font-size: .18rem;
+                margin-right:16px;
+                color: #FB9509;
+            }
+        }
+        
+        .unit{
+            display: inline-block;
+            opacity: 0.45;
+            color: rgba(255, 255, 255, 1);
+        }
+        .totals{
+            font-size: .26rem;
+        }
+        .read_more{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: rgba(0, 110, 153, 1);
+            border-radius: 50%;
+            .flx-c;
+            cursor: pointer;
+            i{
+                font-size: 10px;
+            }
+        }
+        .flx_column{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            .col_item{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: .14rem;
+            }
+            .col_left{
+                
+            }
+            .col_right{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                i.iconzhibiao{
+                    font-size: 15px;
+                    color: #FFBC03;
+                    margin-right: 8px;
+                }
+                .otherNum{
+                    color:#FB8B10;
+                }
+                .right_box{
+                    margin-left:15px;
+                }
+            }
+        }
+        .flx_row{
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            .row_item{
+                width: 33.3%;
+                padding-right: .27rem;
+            }
+            .row_items{
+                white-space:nowrap;
+                font-size:.14rem;
+            }
+            .precent_items{
+                display: flex;
+                justify-content: space-between;
+                font-size: 12px;
+                .all_precent{
+                    box-sizing: border-box;
+                    width: 88%;
+                    height: 15px;
+                    background: #001E2A;
+                    padding:3px 4px;
+                    .precent_content{
+                        position: relative;
+                        height: 100%;
+                    }
+                    .precent{
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background: linear-gradient(to right,#FA6400,#FFF054);
+                    }
+                }
+                .num{
+                    display: inline-block;
+                    min-width: 8%;
+                    margin-left:4%;
+                }
+            }
+            .spe_num{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+}
+//地图上的标记点的样式
+#map-main{
+    /deep/.amap-marker-content{
+        .pointsOuter{
+            .points{
+                width:0.1rem;
+                height:0.1rem;
+                background: #FF9600;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+//右侧div动画
+.animate-right-enter{
+    transform: translateX(100%);
+    opacity: 0;
+}
+.animate-right-enter-active{
+    transition: all 1s linear !important;
+}
+
+.bar-info-win{
+    background: #222F3A;
+    color: #fff;
+    height: 30px;
+    font-size: 12px;
+    padding: 0 20px;
+    border-radius: 4px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    div:nth-of-type(1){
+        background: #FB9509;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        text-align: center;
+        margin-right: 10px;
+    }
+}
+
+.landInfoMsg{
+    height:50px;
+    background-color: #222F3A;
+    padding:2px 2px 2px 12px;
+    color:#fff;
+    display:flex;
+    font-size: 14px;
+    align-items:center;
+    width: max-content;
+    &>div{
+        margin-right:10px;
+        line-height: 50px;
+        .enttype{
+            font-size:30px;
+            color:#FA6400;
+            margin-right:3px;
+        }
+        .A{
+            color:#FA6400;
+        }
+        .B{
+            color:#0091FF;
+        }
+        .c{
+            color:#E02020;
+        }
+        .D{
+            color:#F7B500;
+        }
+    }
+    .ent{
+        display: flex;
+        align-items: center;
+    }
+    .land_icon{
+        background: #001E2A;
+        width: 40px;
+        font-size: 19px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin-right: 0;
+    }
+    .bord{
+        border-left:1px solid #222F3A;
+    }
+}
+.draw_box{
+    background: #ccc;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color:#fff;
+}
