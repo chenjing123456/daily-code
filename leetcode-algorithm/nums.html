@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		/**
+		 * description 给你一个数组 nums，对于其中每个元素 nums[i]，请你统计数组中比它小的所有数字的数目。
+		 * @param {number[]} nums
+		 * @return {number[]}
+		 */
+		var smallerNumbersThanCurrent = function(nums) {
+		    var arrs = [...nums]
+		    for(var i=0;i<=nums.length-1;i++){
+		        var tempI = 0
+		        for(var j =0;j<=nums.length-1;j++){
+		            if(nums[j]<nums[i]){
+		                tempI++
+		            }
+		        }
+		        arrs[i] = tempI
+		    }
+		    // console.log(arrs)
+		    return arrs
+		};
+
+		/**
+		 * description 给你一个数组 nums，对于其中每个元素 nums[i]，请你统计数组中比它小的所有数字的数目。
+		 * @param {number[]} nums
+		 * @return {number[]}
+		 */
+		 
+		 //解题思路：
+		 // 1.从小到大排序 - [1,2,3,4,5,6,7] 排序后的 index（index从0开始计算） 刚好可以表示为前面有几个； 3的index = 2，前面有两个；5的index = 4， 前面有四个；
+		 // 2.循环原数组，将当前循环值 ‘cur’ 在 复制的数组中找 index，依次push进创建的空数组，返回数组得到最终答案；
+
+		var smallerNumbersThanCurrent1 = function(nums) {
+		   
+		    let copyNums = JSON.parse(JSON.stringify(nums));
+		    copyNums.sort((a,b) => a-b);
+
+		     return nums.reduce((pev,cur) => {
+		        const curIndex = copyNums.indexOf(cur);
+		        if (curIndex !== -1) {
+		            pev.push(curIndex)
+		        }
+		        return pev;
+		    }, [])
+		};
+
+		smallerNumbersThanCurrent([8,2,1,2,2,3])
+		let arr1s = smallerNumbersThanCurrent1([8,2,1,2,2,3])
+		console.log(arr1s)
+	</script>
+</body>
+</html>
