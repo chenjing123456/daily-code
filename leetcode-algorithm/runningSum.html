@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>一维数组的动态和</title>
+</head>
+<body>
+<script>
+/**
+ * @descripion 给你一个数组 nums 。计算动态和，数组「动态和」的计算公式为：runningSum[i] = sum(nums[0]…nums[i]) 。
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var runningSum = function(nums) {
+	return nums.reduce((pre,cur,index)=>{
+		if(index==0){
+		  pre.push(cur)
+		}else{
+		  pre.push(pre[index-1] + cur)
+		}
+		return pre
+	},[])
+};
+let a = runningSum([5,2,1,5])
+console.log(a)
+
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+ // 通过javascript中数组的高阶函数reduce来处理，每一次加上一次的累加值，直接修改nums本身，最后返回nums
+var runningSum1 = function(nums) {
+    nums.reduce((prev, curr, index) => {
+        nums[index] = prev + curr
+        return nums[index]
+    }, 0)
+    return nums
+};
+
+var runningSum2 = function (nums) {
+	for(var i=1;i<nums.length;i++){
+		nums[i]+=nums[i-1]
+	}
+	return nums
+}
+
+let arrs = runningSum2([5,2,1,5,9])
+console.log(arrs)
+</script>
+</body>
+</html>

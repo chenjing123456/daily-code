@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>uniqueOccurrences</title>
+</head>
+<body>
+<script>
+// 给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。
+/**
+ * @param {number[]} arr
+ * @return {boolean}
+ */
+var uniqueOccurrences = function(arr) {
+	let objMap = {},hash={};//objMap key表示值，value表示出现次数
+	arr.forEach((v,i)=>{
+		objMap[v] ? objMap[v] = objMap[v]+1 : objMap[v] = 1
+	})
+	let arrs = Object.values(objMap)
+	for(var i in arrs){
+		if(hash[arrs[i]]) return false
+		hash[arrs[i]] = true
+	}
+	return true
+};
+let falg = uniqueOccurrences([1,2,2,2,1,1,3])
+console.log(falg)
+
+var uniqueOccurrences1 = function(arr){
+	let mapObj = arr.reduce((pev,cur,index)=>{
+		pev[cur] ? pev[cur]++ : pev[cur] = 1
+		return pev
+	},{})
+
+	let arrs = Object.values(mapObj)
+	return arrs.length === new Set(arrs).size
+}
+console.log(uniqueOccurrences1([2,2,2,1,1,3]))
+
+var restoreString = function(s, indices) {
+    let arr = s.split('')
+    console.log(arr)
+    return indices.reduce((prev,cur,i)=>{
+        prev += arr[cur] 
+        return prev
+    },'')
+};
+console.log(restoreString('codeleet',[4,5,6,7,0,2,1,3]))
+</script>
+</body>
+</html>
